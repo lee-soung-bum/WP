@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <style>
+      .text-center {
+    text-align: center;
+}
+button{
+        padding: .5rem 1rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: .3rem;
+        color: #007bff;
+        background-color: transparent;
+        background-image: none;
+        border-color: #007bff
+        margin-top: 20px;
+        }
+    </style>
+    <title>대한민국 축구 커뮤니티</title>
+</head>
+<body class="text-center">
+  <img class="mb-4" src="{% static 'img/kfa.jpg' %}" alt="" width="600" height="400">
+  <h1>대한민국 축구 커뮤니티 사이트에 오신 것을 환영합니다!</h1>
+        <form method="POST">
+        {% csrf_token %}
+  <label for="inputId">아이디: </label>
+  <input type=text" id="inputId" placeholder="아이디를 입력하세요" name="userid">
+  <label for="inputPassword">비밀번호: </label>
+  <input type="password" id="inputPassword" placeholder="비밀번호를 입력하세요" name="password">
+  <div>
+      <br>
+    <label>
+      <input type="checkbox"> 아이디 저장
+    </label>
+      <br>
+      <br>
+  </div>
+ <button type="submit">로그인</button>
+    </form>
+  <h1>{{ error }}</h1>
+<br><a href="{% url 'community:membership' %}"><button>회원 가입</button></a><br>
+ <p>&copy; 2020 </p>
+</body>
+</html>

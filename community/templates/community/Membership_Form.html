@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 가입</title>
+    <style>
+      .text-center {
+    text-align: center;
+}
+button{
+        padding: .5rem 1rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: .3rem;
+        color: #007bff;
+        background-color: transparent;
+        background-image: none;
+        border-color: #007bff
+        margin-top: 20px;
+        }
+</style>
+
+</head>
+<body>
+<form method="post" action="{% url 'community:membership' %}" >
+    {% csrf_token %}
+   <table  width="940" style="margin:10px 100px 10px 10px;">
+       <td colspan="2" align="center">
+           <h1>회원 가입</h1>
+       </td>
+      <tr>
+         <th> 이름</th>
+         <td><input type="text" name="username"></td>
+      </tr>
+       <tr>
+         <th>아이디</th>
+         <td>
+         <input type="text" name="userid">
+         </td>
+       </tr>
+       <tr>
+         <th>비밀번호</th>
+         <td><input type="password" name="password"> 영문/숫자포함 6자 이상</td>
+       </tr>
+       <tr>
+         <th>비밀번호 확인</th>
+         <td><input type="password" name="re_password"></td>
+       </tr>
+            <tr>
+             <td colspan="2" style=padding:20px;>
+                 <button type="submit" style="margin:0 0 0 200px;">회원가입</button>
+                 <button type="reset" style="margin:0 0 0 10px;">취소</button>
+            </td>
+           </tr>
+           </table>
+    <h1>{{error}}</h1>
+          </form>
+<a href="{% url 'community:index' %}"><button style="margin:0 0 0 280px;">홈으로 이동</button></a>
+</body>
+</html>
